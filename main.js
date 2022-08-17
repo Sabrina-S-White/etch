@@ -10,21 +10,27 @@
 window.onload = createBoard(256);
 
 const cells = document.querySelectorAll('div.tile');
-const buttons = document.querySelector('#btn');
+const btn16 = document.getElementById('16');
+const btn36 = document.getElementById('36');
+const btn64 = document.getElementById('64');
+const btnReset = document.getElementById('reset');
+const btnColor = document.getElementById('color');
 
 function clearGrid () {
-    
+    container.innerHTML = "";
 }
 
-buttons.addEventListener('click', function() {
-    let number = prompt('Please select the number of tiles per row you want'); 
-    if (number <= 1) {
-        alert('Please choose a number higher than 1');
-        return;
-    } else {
-        clearGrid();
-        createBoard(number);
-    }});
+
+
+btn16.addEventListener('click', function() {
+    clearGrid();
+    createBoard(256);
+})
+
+btn36.addEventListener('click', function() {
+    clearGrid();
+    createBoard(1296);
+})
 
 cells.forEach(cell => {
     cell.addEventListener('mouseover', function () {
